@@ -2,11 +2,11 @@ import telebot
 import google.generativeai as genai
 import os
 
-# ضع مفتاح Google API الخاص بك هنا بين علامتي التنصيص
-genai.configure(api_key="ضع_مفتاح_جوجل_هنا")
+# ضع مفتاح Google API الخاص بك هنا
+genai.configure(api_key="AQ.Ab8RN6KQwV5TEku8UhFZDRYnyW498FzuyggtZl1IAzy9ka2MNQ")
 
 # ضع التوكن الخاص ببوت تليجرام هنا
-bot = telebot.TeleBot("ضع_توكن_تليجرام_هنا")
+bot = telebot.TeleBot("8989715708:AAFz6LnnDTG8pDvY30UWAhIOWuXG4j3sKNs")
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 

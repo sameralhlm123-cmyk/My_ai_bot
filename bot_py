@@ -1,0 +1,21 @@
+import telebot
+import google.generativeai as genai
+import os
+
+# ضع مفتاح Google API الخاص بك هنا بين علامتي التنصيص
+genai.configure(api_key="ضع_مفتاح_جوجل_هنا")
+
+# ضع التوكن الخاص ببوت تليجرام هنا
+bot = telebot.TeleBot("ضع_توكن_تليجرام_هنا")
+
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+@bot.message_handler(func=lambda message: True)
+def handle_message(message):
+    try:
+        response = model.generate_content(message.text)
+        bot.reply_to(message, response.text)
+    except Exception as e:
+        bot.reply_to(message, "حدث خطأ تقني، يرجى المحاولة لاحقاً.")
+
+bot.polling()

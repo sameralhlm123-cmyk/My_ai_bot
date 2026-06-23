@@ -1,12 +1,8 @@
 import telebot
 import google.generativeai as genai
-import os
 
-# ضع مفتاح Google API الخاص بك هنا
-genai.configure(api_key="AQ.Ab8RN6KQwV5TEku8UhFZDRYnyW498FzuyggtZl1IAzy9ka2MNQ")
-
-# ضع التوكن الخاص ببوت تليجرام هنا
-bot = telebot.TeleBot("8989715708:AAFz6LnnDTG8pDvY30UWAhIOWuXG4j3sKNs")
+genai.configure(AQ.Ab8RN6KQwV5TEku8UhFZDRYnyW498FzuyggtZl1IAzy9ka2MNQ)
+bot = telebot.TeleBot(8989715708:AAFz6LnnDTG8pDvY30UWAhIOWuXG4j3sKNs)
 
 model = genai.GenerativeModel('gemini-1.5-flash')
 
@@ -16,6 +12,6 @@ def handle_message(message):
         response = model.generate_content(message.text)
         bot.reply_to(message, response.text)
     except Exception as e:
-        bot.reply_to(message, "حدث خطأ تقني، يرجى المحاولة لاحقاً.")
+        bot.reply_to(message, "Error occurred, please try again later.")
 
 bot.polling()
